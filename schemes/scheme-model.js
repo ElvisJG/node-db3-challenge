@@ -13,12 +13,31 @@ function find() {
   return db('schemes');
 }
 
-function findById() {}
+function findById(id) {
+  return db('schemes')
+    .where({ id })
+    .first();
+}
 
-function findSteps() {}
+function findSteps(id) {
+  return db('steps as s')
+    .join('', '', '')
+    .select('', '', '')
+    .where({ id });
+}
 
-function add() {}
+function add(scheme) {
+  return db('schemes')
+    .insert(scheme)
+    .then(ids => {
+      return findById(ids[0]);
+    });
+}
 
-function update() {}
+function update(changes, id) {
+  return db('schemes');
+}
 
-function remove() {}
+function remove(id) {
+  return db('schemes');
+}
